@@ -17,14 +17,6 @@ class ArticlesSpider(scrapy.Spider):
     def parse(self, response: HtmlResponse):
         if response.status is not 200:
             return
-        # page_not_found = response.xpath(
-        #     '//h1[contains(normalize-space(text()), "can\'t find the booty ye be looking for.")]'
-        # ).get()
-
-        # if page_not_found is not None:
-        #     return
-
-        print(f"SCRAPING PAGE: {self.current_page}")
 
         articles = response.css("div.block.pt-6.pb-0")
 

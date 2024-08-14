@@ -24,14 +24,12 @@ class RedisPublishPipeline:
                         password=file_json.get("password"),
                     )
                     self.items = []  # List to hold all scraped items
-        else:
-            print("CONFIG FILE DOES NOT EXIST")
 
     def close_spider(self, spider):
         if self.redis_client is not None:
             items_json = json.dumps(self.items, indent=4)
             self.redis_client.publish(f"blogs.jon.{spider.name}", items_json)
-            print("published")
+            print("published to Redis")
 
     def process_item(self, item, spider):
         # Add each item to the list
