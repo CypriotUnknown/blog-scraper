@@ -8,7 +8,7 @@ class ArticlesSpider(scrapy.Spider):
     start_urls = ["https://www.calhoun.io/page/1/"]
 
     base_url = "https://www.calhoun.io/page/"
-    current_page = 1
+    page_to_scrape = 1
 
     custom_settings = {
         "FEEDS": {"articles.json": {"format": "json", "indent": 4, "overwrite": True}}
@@ -30,5 +30,7 @@ class ArticlesSpider(scrapy.Spider):
             preview = article.css("p::text").get()
             yield {"url": url, "title": title, "preview": preview}
 
-        self.current_page += 1
-        yield scrapy.Request(f"{self.base_url}{self.current_page}", callback=self.parse)
+        self.page_to_scrape += 1
+        yield scrapy.Request(
+            f"{self.base_url}{self.page_to_scrape}", callback=self.parse
+        )
