@@ -15,5 +15,6 @@ The application can use a JSON configuration file to specify connection details.
   "host": "<string>",
   "port": <int>,
   "username": "<string>",
-  "password": "<string>"
+  "password": "<string>",
+  "channel_pattern": "<string>"
 }
