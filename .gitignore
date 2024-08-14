@@ -2,3 +2,4 @@ venv
 .env
 redis-conf.json
 articles.json
+__pycache__
