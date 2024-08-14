@@ -38,7 +38,9 @@ class RedisPublishPipeline:
 
     def close_spider(self, spider):
         if self.redis_client is not None:
-            items_json = json.dumps(self.items, indent=4)
+            dict_to_send = {"articles": self.items}
+
+            items_json = json.dumps(dict_to_send, indent=4)
             channel_name = self.channel_pattern + spider.name
 
             self.redis_client.publish(channel_name, items_json)
