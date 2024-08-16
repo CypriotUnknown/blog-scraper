@@ -1,7 +1,7 @@
 import scrapy
 from datetime import datetime, timezone
 
-import scrapy.exceptions
+from scrapy.exceptions import DropItem
 
 
 class ScrapingbeePipeline:
@@ -11,7 +11,7 @@ class ScrapingbeePipeline:
         item_url = item.get("url")
 
         if item_url is None:
-            raise scrapy.exceptions.DropItem(item)
+            raise DropItem(item)
 
         item["url"] = self.base_url + item_url
         item_image = item.get("image")

@@ -3,3 +3,4 @@ venv
 redis-conf.json
 articles.json
 **/__pycache__
+data
