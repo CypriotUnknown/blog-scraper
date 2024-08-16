@@ -2,17 +2,13 @@ import scrapy
 from scrapy.http import HtmlResponse
 
 
-class ArticlesSpider(scrapy.Spider):
-    name = "articles"
+class JonCalhounSpider(scrapy.Spider):
+    name = "jon"
     allowed_domains = ["www.calhoun.io"]
     start_urls = ["https://www.calhoun.io/page/1/"]
 
     base_url = "https://www.calhoun.io/page/"
     page_to_scrape = 1
-
-    custom_settings = {
-        "FEEDS": {"articles.json": {"format": "json", "indent": 4, "overwrite": True}}
-    }
 
     def parse(self, response: HtmlResponse):
         if response.status is not 200:

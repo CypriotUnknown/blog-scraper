@@ -63,7 +63,9 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "blog.pipelines.RedisPublishPipeline": 300,
+    "blog.pipelines.clean_format_strings.FormatStringsPipeline": 200,
+    "blog.pipelines.redis_publish.RedisPublishPipeline": 300,
+    "blog.pipelines.dump_json.JsonWriterPipeline": 1000,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

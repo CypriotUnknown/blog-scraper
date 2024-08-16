@@ -1,0 +1,199 @@
+[
+{
+    "title": "how to take screenshots in python?",
+    "link": "https://scrapfly.io/blog/how-to-take-screenshots-in-python/",
+    "creator": "mazen ramadan",
+    "description": "learn how to take python screenshots through selenium and playwright, including common browser tips and tricks for customizing web page captures.",
+    "pub_date": "thu, 08 aug 2024 06:37:03 gmt",
+    "categories": [
+        "screenshots",
+        "python",
+        "headless browsers"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-take-screenshots-in-python_banner.svg"
+},
+{
+    "title": "what is the best screenshot api in 2024?",
+    "link": "https://scrapfly.io/blog/what-is-the-best-screenshot-api/",
+    "creator": "mazen ramadan",
+    "description": "learn everything about the best screenshot api, from the features to consider to a list of the best services available and how to benchmark them.",
+    "pub_date": "sat, 03 aug 2024 05:27:25 gmt",
+    "categories": [
+        "screenshots"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/what-is-the-best-screenshot-api_banner.svg"
+},
+{
+    "title": "web scraping with go",
+    "link": "https://scrapfly.io/blog/web-scraping-with-go/",
+    "creator": "mazen ramadan",
+    "description": "learn web scraping with golang, from native http requests and html parsing to a step-by-step guide to using colly, the go web crawling package.",
+    "pub_date": "wed, 24 jul 2024 15:10:37 gmt",
+    "categories": [
+        "golang",
+        "http",
+        "data parsing",
+        "scraping frameworks",
+        "scraping introduction"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/web-scraping-with-go_banner.svg"
+},
+{
+    "title": "how to power-up llms with web scraping and rag",
+    "link": "https://scrapfly.io/blog/how-to-use-web-scaping-for-rag-applications/",
+    "creator": "mazen ramadan",
+    "description": "in depth look at how to use llm and web scraping for rag applications using either llamaindex or langchain. ",
+    "pub_date": "tue, 11 jun 2024 13:40:26 gmt",
+    "categories": [
+        "ai",
+        "python",
+        "project"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-use-web-scaping-for-rag-applications_banner.svg"
+},
+{
+    "title": "web scraping with cloud browsers",
+    "link": "https://scrapfly.io/blog/web-scraping-with-cloud-browsers/",
+    "creator": "mazen ramadan",
+    "description": "introduction cloud browsers and their benefits and a step-by-step setup with self-hosted selenium-grid cloud browsers.",
+    "pub_date": "fri, 17 may 2024 09:40:20 gmt",
+    "categories": [
+        "headless browsers",
+        "scaling"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/web-scraping-with-cloud-browsers_banner.svg"
+},
+{
+    "title": "how to scrape forms",
+    "link": "https://scrapfly.io/blog/how-to-scrape-forms/",
+    "creator": "mazen ramadan",
+    "description": "learn how to scrape forms through a step-by-step guide using http clients and headless browsers.",
+    "pub_date": "fri, 10 may 2024 11:34:33 gmt",
+    "categories": [
+        "headless browsers",
+        "python",
+        "httpx",
+        "scraping introduction",
+        "nodejs"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-forms_banner.svg"
+},
+{
+    "title": "how to build a minimum advertised price (map) monitoring tool",
+    "link": "https://scrapfly.io/blog/how-to-build-minimum-advertised-price-monitoring-tool/",
+    "creator": "mazen ramadan",
+    "description": "learn what minimum advertised price monitoring is and how to apply its concept using python web scraping.",
+    "pub_date": "fri, 03 may 2024 10:21:08 gmt",
+    "categories": [
+        "project",
+        "python"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-build-minimum-advertised-price-monitoring-tool_banner.svg"
+},
+{
+    "title": "how to scrape reddit posts, subreddits and profiles",
+    "link": "https://scrapfly.io/blog/how-to-scrape-reddit-social-data/",
+    "creator": "mazen ramadan",
+    "description": "in this article, we'll explore how to scrape reddit. we'll extract various social data types from subreddits, posts, and user pages. all of which through plain http requests without headless browser usage.",
+    "pub_date": "mon, 22 apr 2024 16:32:14 gmt",
+    "categories": [
+        "python",
+        "scrapeguide"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-reddit-social-data_banner.svg"
+},
+{
+    "title": "how to scrape with headless firefox",
+    "link": "https://scrapfly.io/blog/how-to-scrape-with-headless-firefox/",
+    "creator": "mazen ramadan",
+    "description": "discover how to use headless firefox with selenium, playwright, and puppeteer for web scraping, including practical examples for each library.",
+    "pub_date": "wed, 17 apr 2024 15:33:34 gmt",
+    "categories": [
+        "headless browsers",
+        "puppeteer",
+        "selenium",
+        "nodejs",
+        "playwright",
+        "python"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-with-headless-firefox_banner.svg"
+},
+{
+    "title": "how to use tor for web scraping",
+    "link": "https://scrapfly.io/blog/how-to-use-tor-for-web-scraping/",
+    "creator": "mazen ramadan",
+    "description": "in this article, we'll explain web scraping using tor. for this, we'll use tor as a proxy server to change the ip address randomly in either http or socks, as well as using it as a rotating proxy server.",
+    "pub_date": "fri, 12 apr 2024 13:15:47 gmt",
+    "categories": [
+        "tools",
+        "proxies"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-use-tor-for-web-scraping_banner.svg"
+},
+{
+    "title": "how to know what anti-bot service a website is using?",
+    "link": "https://scrapfly.io/blog/how-to-know-what-anti-bot-website-uses/",
+    "creator": "mazen ramadan",
+    "description": "in this article we'll take a look at two popular tools: whatwaf and wafw00f which can identify what waf service is used.",
+    "pub_date": "tue, 09 apr 2024 16:01:42 gmt",
+    "categories": [
+        "scraper blocking",
+        "tools"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-know-what-anti-bot-website-uses_banner.svg"
+},
+{
+    "title": "how to scrape linkedin in 2024",
+    "link": "https://scrapfly.io/blog/how-to-scrape-linkedin-person-profile-company-job-data/",
+    "creator": "mazen ramadan",
+    "description": "in this scrape guide we'll be taking a look at one of the most popular web scraping targets - linkedin.com. we'll be scraping people profiles, company profiles as well as job listings and search.",
+    "pub_date": "fri, 05 apr 2024 10:43:11 gmt",
+    "categories": [
+        "python",
+        "scrapeguide"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-linkedin-person-profile-company-job-data_banner.svg"
+},
+{
+    "title": "selenium wire tutorial: intercept background requests",
+    "link": "https://scrapfly.io/blog/how-to-intercept-background-requests-with-selenium-wire/",
+    "creator": "mazen ramadan",
+    "description": "in this guide, we'll explore web scraping with selenium wire. we'll define what it is, how to install it, and how to use it to inspect and manipulate background requests.",
+    "pub_date": "mon, 01 apr 2024 04:52:19 gmt",
+    "categories": [
+        "python",
+        "headless browsers",
+        "selenium",
+        "tools"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-intercept-background-requests-with-selenium-wire_banner.svg"
+},
+{
+    "title": "how to scrape similarweb website traffic analytics",
+    "link": "https://scrapfly.io/blog/how-to-scrape-similarweb/",
+    "creator": "mazen ramadan",
+    "description": "in this guide, we'll explain how to scrape similarweb through a step-by-step guide. we'll scrape comprehensive website traffic insights, websites comparing data, sitemaps, and trending industry domains.",
+    "pub_date": "mon, 25 mar 2024 09:33:50 gmt",
+    "categories": [
+        "scrapeguide",
+        "seo",
+        "search-engine",
+        "python"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-similarweb_banner.svg"
+},
+{
+    "title": "how to scrape bestbuy product, offer and review data",
+    "link": "https://scrapfly.io/blog/how-to-scrape-bestbuy-product-offer-and-review-data/",
+    "creator": "mazen ramadan",
+    "description": "learn how to scrape bestbuy, one of the most popular retail stores for electronic stores in the united states. we'll scrape different data types from product, search, review, and sitemap pages using different web scraping techniques.",
+    "pub_date": "wed, 20 mar 2024 14:07:11 gmt",
+    "categories": [
+        "scrapeguide",
+        "hidden api",
+        "e-commerce",
+        "python"
+    ],
+    "images": "https://scrapfly.io/blog/content/images/how-to-scrape-bestbuy-product-offer-and-review-data_banner.svg"
+}
+]

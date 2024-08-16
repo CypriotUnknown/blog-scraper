@@ -22,9 +22,9 @@ class RedisPublishPipeline:
                     and channel_pattern is not None
                 ):
                     self.channel_pattern = (
-                        f"{channel_pattern}."
+                        channel_pattern
                         if channel_pattern[-1] != "."
-                        else channel_pattern
+                        else channel_pattern.removesuffix(".")
                     )
 
                     self.redis_client = redis.Redis(
@@ -41,7 +41,7 @@ class RedisPublishPipeline:
             dict_to_send = {"articles": self.items}
 
             items_json = json.dumps(dict_to_send, indent=4)
-            channel_name = self.channel_pattern + spider.name
+            channel_name = ".".join([self.channel_pattern, spider.name, "articles"])
 
             self.redis_client.publish(channel_name, items_json)
             print(f"published to Redis @ '{channel_name}'")

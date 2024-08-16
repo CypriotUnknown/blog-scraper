@@ -1,0 +1,152 @@
+[
+    {
+        "url": "https://www.scrapingbee.com/blog/playwright-for-python-web-scraping/",
+        "title": "playwright for python web scraping tutorial with examples",
+        "image": "https://www.scrapingbee.com/blog/playwright-for-python-web-scraping/cover.png",
+        "date": "2024-08-12T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "ilya krukowski"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/ultimate-git-and-github-commands-tutorial-with-examples/",
+        "title": "ultimate git and github tutorial with examples",
+        "image": "https://www.scrapingbee.com/blog/ultimate-git-and-github-commands-tutorial-with-examples/cover.png",
+        "date": "2024-08-05T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "ilya krukowski"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/crawlee-for-python-tutorial-with-examples/",
+        "title": "crawlee for python tutorial with examples",
+        "image": "https://www.scrapingbee.com/blog/crawlee-for-python-tutorial-with-examples/cover.png",
+        "date": "2024-07-29T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "karthik devan"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/python-web-scraping-beautiful-soup/",
+        "title": "beautifulsoup tutorial: scraping web pages with python",
+        "image": "https://www.scrapingbee.com/blog/python-web-scraping-beautiful-soup/cover.png",
+        "date": "2024-07-26T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "satyam tripathi"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/shades-of-success-e-commerce-trending-colours/",
+        "title": "shades of success: the trending e-commerce colours of 2024",
+        "image": "https://www.scrapingbee.com/blog/shades-of-success-e-commerce-trending-colours/cover.png",
+        "date": "2024-07-22T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "scrapingbee team"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/how-to-scrape-tiktok/",
+        "title": "how to scrape tiktok in 2024: scrape profile stats and videos",
+        "image": "https://www.scrapingbee.com/blog/how-to-scrape-tiktok/cover.png",
+        "date": "2024-07-15T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "ismail ajagbe"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/xpath-css-cheat-sheet/",
+        "title": "xpath/css cheat sheet",
+        "image": "https://www.scrapingbee.com/blog/xpath-css-cheat-sheet/cover.png",
+        "date": "2024-07-12T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "harpal singh"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/web-scraping-tools/",
+        "title": "the best web scraping tools & software in 2024",
+        "image": "https://www.scrapingbee.com/blog/web-scraping-tools/cover.png",
+        "date": "2024-07-09T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "kevin sahin"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/how-to-scrape-all-text-from-a-website-for-llm-ai-training/",
+        "title": "how to scrape all text from a website for llm training",
+        "image": "https://www.scrapingbee.com/blog/how-to-scrape-all-text-from-a-website-for-llm-ai-training/cover.png",
+        "date": "2024-07-03T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "ilya krukowski"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/async-scraping-in-python/",
+        "title": "how to use asyncio to scrape websites with python",
+        "image": "https://www.scrapingbee.com/blog/async-scraping-in-python/cover.png",
+        "date": "2024-07-01T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "alexander m"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/study-of-amazons-best-selling-and-most-read-book-charts-since-2017/",
+        "title": "study of amazon\u2019s best selling & most read book charts since 2017",
+        "image": "https://www.scrapingbee.com/blog/study-of-amazons-best-selling-and-most-read-book-charts-since-2017/cover.png",
+        "date": "2024-06-24T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "karthik devan"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/how-to-bypass-cloudflare-antibot-protection-at-scale/",
+        "title": "how to bypass cloudflare antibot protection at scale in 2024",
+        "image": "https://www.scrapingbee.com/blog/how-to-bypass-cloudflare-antibot-protection-at-scale/cover.png",
+        "date": "2024-06-19T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "satyam tripathi"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/scrapegraph-ai-tutorial-scrape-websites-easily-with-llama-ai/",
+        "title": "scrapegraph ai tutorial; scrape websites easily with llama ai",
+        "image": "https://www.scrapingbee.com/blog/scrapegraph-ai-tutorial-scrape-websites-easily-with-llama-ai/cover.png",
+        "date": "2024-05-30T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "ilya krukowski"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/web-scraping-101-with-python/",
+        "title": "python web scraping: full tutorial with examples (2024)",
+        "image": "https://www.scrapingbee.com/blog/web-scraping-101-with-python/cover.png",
+        "date": "2024-05-28T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "kevin sahin"
+        }
+    },
+    {
+        "url": "https://www.scrapingbee.com/blog/a-guide-to-web-scraping-for-data-journalism/",
+        "title": "a guide to web scraping for data journalism",
+        "image": "https://www.scrapingbee.com/blog/a-guide-to-web-scraping-for-data-journalism/cover.png",
+        "date": "2024-05-21T00:00:00+03:00",
+        "author": {
+            "image": "https://www.scrapingbee.com/images/authors/ilya.jpeg",
+            "name": "scrapingbee team"
+        }
+    }
+]
