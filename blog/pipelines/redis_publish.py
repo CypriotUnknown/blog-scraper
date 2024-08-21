@@ -1,6 +1,8 @@
 import json
 import redis
 import os
+from ..items import Article
+from scrapy.exceptions import DropItem
 
 
 class RedisPublishPipeline:
@@ -34,20 +36,38 @@ class RedisPublishPipeline:
                         username=file_json.get("username"),
                         password=file_json.get("password"),
                     )
-                    self.items = []  # List to hold all scraped items
+                    self.items: list[Article] = []  # List to hold all scraped items
+                    self.notification_flag: str | None = None
 
     def close_spider(self, spider):
         if self.redis_client is not None:
-            dict_to_send = {"articles": self.items}
+            dict_to_send = {
+                "articles": self.items,
+                "notificationFlag": self.notification_flag,
+            }
 
             items_json = json.dumps(dict_to_send, indent=4)
-            channel_name = ".".join([self.channel_pattern, spider.name, "articles"])
+            channel_name = ".".join(
+                [self.channel_pattern, spider.name, "blogs", "articles"]
+            )
 
             self.redis_client.publish(channel_name, items_json)
             print(f"published to Redis @ '{channel_name}'")
 
-    def process_item(self, item, spider):
+    def process_item(self, item: Article | None, spider):
+        if item is None:
+            print("ITEM IS NULL")
+            raise DropItem(item)
+
+        if item.title is None:
+            print("ITEM TITLE IS NULL")
+            raise DropItem(item)
+
+        self.notification_flag = (
+            "lastArticleDate" if item.timestamp is not None else "lastArticleTitle"
+        )
+
         # Add each item to the list
         if self.redis_client is not None:
-            self.items.append(item)
+            self.items.append(item.to_dict())
         return item

@@ -1,6 +1,8 @@
+from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from scrapy.utils.project import get_project_settings
+from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 
 
 class GithubLatestSpider(scrapy.Spider):
@@ -8,12 +10,9 @@ class GithubLatestSpider(scrapy.Spider):
     allowed_domains = ["github.blog"]
     start_urls = ["https://github.blog/latest/"]
 
-    custom_settings = {
-        "ITEM_PIPELINES": {
-            **get_project_settings().get("ITEM_PIPELINES", {}),
-            "blog.pipelines.process_github.GithubLatestPipeline": 250,
-        },
-    }
+    def __init__(self, name: str | None = None, **kwargs: Any):
+        super().__init__(name, **kwargs)
+        self.date_format = "%Y-%m-%d"
 
     def parse(self, response: HtmlResponse):
         articles = response.css("article")
@@ -28,18 +27,12 @@ class GithubLatestSpider(scrapy.Spider):
             author_url = article.css("footer a[rel=author]::attr(href)").get()
             date = article.css("footer time::attr(datetime)").get()
 
-            yield {
-                "title": title,
-                "url": url,
-                "description": description,
-                "date": date,
-                "image": image,
-                "category": {
-                    "name": category_name,
-                    "url": category_url,
-                },
-                "author": {
-                    "name": author_name,
-                    "url": author_url,
-                },
-            }
+            yield Article(
+                title,
+                url,
+                date,
+                ArticleMedia(image),
+                ArticleAuthor(author_name, url=author_url),
+                description,
+                footer=ArticleFooter(text=category_name),
+            )

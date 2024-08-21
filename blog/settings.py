@@ -64,6 +64,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "blog.pipelines.clean_format_strings.FormatStringsPipeline": 200,
+    "blog.pipelines.process_date.ProcessDatePipeline": 250,
     "blog.pipelines.redis_publish.RedisPublishPipeline": 300,
     "blog.pipelines.dump_json.JsonWriterPipeline": 1000,
 }

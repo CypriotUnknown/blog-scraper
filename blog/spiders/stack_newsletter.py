@@ -1,5 +1,6 @@
 import scrapy
 from scrapy.http import HtmlResponse
+from ..items import Article
 
 
 class StackNewsletterSpider(scrapy.Spider):
@@ -9,16 +10,14 @@ class StackNewsletterSpider(scrapy.Spider):
 
     def parse(self, response: HtmlResponse):
         articles = response.xpath('//time[@itemprop="datePublished"]/parent::a')
+        base_url = "https://stackoverflow.blog"
 
         for article in articles:
             url = article.css("::attr(href)").get()
+            url = f"{base_url}{url}" if url is not None else None
+
             date = article.css("time::attr(datetime)").get()
             title = article.css("[class*='headline']::text").get()
             description = article.css("p[class*='body']::text").get()
 
-            yield {
-                "url": url,
-                "date": date,
-                "title": title,
-                "description": description,
-            }
+            yield Article(title=title, url=url, timestamp=date, description=description)

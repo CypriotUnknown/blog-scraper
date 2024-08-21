@@ -1,3 +1,6 @@
+from ..items import Article
+
+
 def clean_and_format_string_values_in_dict(dictionary):
     if isinstance(dictionary, dict):
         for key, value in dictionary.items():
@@ -15,6 +18,6 @@ def clean_and_format_string_values_in_dict(dictionary):
 
 
 class FormatStringsPipeline:
-    def process_item(self, item, spider):
-        item = clean_and_format_string_values_in_dict(item)
-        return item
+    def process_item(self, item: Article, spider):
+        fixedDict = clean_and_format_string_values_in_dict(item.to_dict())
+        return Article(**fixedDict)

@@ -1,57 +1,54 @@
-import re
+from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
-from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+from urllib.parse import urlparse
+from scrapy.utils.project import get_project_settings
+from ..items import ArticleAuthor, Article, ArticleMedia
 
 
 class CodingHorrorSpider(scrapy.Spider):
     name = "coding-horror"
     allowed_domains = ["blog.codinghorror.com"]
-    start_urls = [
-        "https://blog.codinghorror.com/about-me",
-        "https://blog.codinghorror.com/",
-    ]
+    start_urls = ["https://blog.codinghorror.com/"]
+
+    def __init__(self, name: str | None = None, **kwargs: Any):
+        super().__init__(name, **kwargs)
+        self.date_format = "%Y-%m-%d"
 
     def parse(self, response: HtmlResponse):
-        split = list(
-            filter(
-                lambda component: len(component) > 0,
-                map(
-                    lambda component: component.strip(),
-                    urlparse(response.url).path.split("/"),
-                ),
+        items: list[Article] = []
+        articles = response.xpath("//main/article")
+
+        for article in articles:
+            date = article.xpath(".//time/@datetime").get()
+            title = article.xpath(".//*[@class='post-title']/a/text()").get()
+            url = article.xpath(".//*[@class='post-title']/a/@href").get()
+            url = f"https://blog.codinghorror.com{url}" if url is not None else None
+
+            preview = "".join(
+                article.xpath(".//section[@class='post-content']/p/text()").getall()
             )
+
+            items.append(Article(title, url, date, description=preview))
+
+        yield scrapy.Request(
+            "https://blog.codinghorror.com/about-me",
+            callback=self.parse_author_page,
+            meta={"items": items},
         )
 
-        if len(split) > 0 and split[0] == "about-me":
-            author_url = response.xpath(
-                '//section/p/text()[contains(., "I\'m")]/following-sibling::a/@href'
-            ).get()
+    def parse_author_page(self, response: HtmlResponse):
+        author_name = response.xpath(
+            '//section/p/text()[contains(., "I\'m")]/following-sibling::a/text()'
+        ).get()
 
-            author_name = response.xpath(
-                '//section/p/text()[contains(., "I\'m")]/following-sibling::a/text()'
-            ).get()
-            author_image = response.xpath("//img/@src").get()
+        author_url = response.xpath(
+            '//section/p/text()[contains(., "I\'m")]/following-sibling::a/@href'
+        ).get()
 
-            yield {
-                "url": author_url,
-                "image": author_image,
-                "name": author_name,
-            }
-        else:
-            articles = response.xpath("//main/article")
+        author_image = response.xpath("//img/@src").get()
 
-            for article in articles:
-                date = article.xpath(".//time/@datetime").get()
-                title = article.xpath(".//*[@class='post-title']/a/text()").get()
-                url = article.xpath(".//*[@class='post-title']/a/@href").get()
-                preview = "".join(
-                    article.xpath(".//section[@class='post-content']/p/text()").getall()
-                )
+        for item in response.meta["items"]:
+            item.author = ArticleAuthor(author_name, author_image, author_url)
 
-                yield {
-                    "date": date,
-                    "title": title,
-                    "url": url,
-                    "preview": preview,
-                }
+            yield item

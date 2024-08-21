@@ -1,10 +1,11 @@
 import json
 import os
+from ..items import Article
 
 
 class JsonWriterPipeline:
     def open_spider(self, spider):
-        self.items: list[dict] = []
+        self.items: list[Article] = []
 
     def close_spider(self, spider):
         directory = os.path.join(os.path.abspath(""), "data")
@@ -12,7 +13,7 @@ class JsonWriterPipeline:
         os.makedirs(directory, exist_ok=True)
 
         with open(file_path, "w") as file:
-            file.write(json.dumps(self.items, indent=4))
+            file.write(json.dumps([item.to_dict() for item in self.items], indent=4))
 
     def process_item(self, item, spider):
         self.items.append(item)

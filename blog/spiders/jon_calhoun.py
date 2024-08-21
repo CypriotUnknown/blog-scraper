@@ -1,5 +1,6 @@
 import scrapy
 from scrapy.http import HtmlResponse
+from ..items import Article
 
 
 class JonCalhounSpider(scrapy.Spider):
@@ -23,8 +24,8 @@ class JonCalhounSpider(scrapy.Spider):
                 title.strip() for title in title_all_text if title.strip()
             ]
             title = non_empty_titles[0] if non_empty_titles else None
-            preview = article.css("p::text").get()
-            yield {"url": url, "title": title, "preview": preview}
+            description = article.css("p::text").get()
+            yield Article(title, url, description=description)
 
         self.page_to_scrape += 1
         yield scrapy.Request(

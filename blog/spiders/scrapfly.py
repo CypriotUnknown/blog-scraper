@@ -1,5 +1,8 @@
+from typing import Any
 import scrapy
 from scrapy.http import XmlResponse
+from scrapy.utils.project import get_project_settings
+from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 
 
 class ScrapflySpider(scrapy.Spider):
@@ -13,22 +16,25 @@ class ScrapflySpider(scrapy.Spider):
         "media": "http://search.yahoo.com/mrss/",
     }
 
+    def __init__(self, name: str | None = None, **kwargs: Any):
+        super().__init__(name, **kwargs)
+        self.date_format = "%a, %d %b %Y %H:%M:%S %Z"
+
     def parse(self, response: XmlResponse):
-        # Loop through each item in the RSS feed
+
         for item in response.xpath("//item"):
-            yield {
-                "title": item.xpath("title/text()").get(),
-                "link": item.xpath("link/text()").get(),
-                "creator": item.xpath(
-                    "dc:creator/text()", namespaces=self.namespaces
-                ).get(),
-                # "content": item.xpath(
-                #     "content:encoded/text()", namespaces=self.namespaces
-                # ).get(),
-                "description": item.xpath("description/text()").get(),
-                "pub_date": item.xpath("pubDate/text()").get(),
-                "categories": item.xpath("category/text()").getall(),
-                "images": item.xpath(
-                    "media:content/@url", namespaces=self.namespaces
-                ).get(),
-            }
+            yield Article(
+                title=item.xpath("title/text()").get(),
+                url=item.xpath("link/text()").get(),
+                timestamp=item.xpath("pubDate/text()").get(),
+                description=item.xpath("description/text()").get(),
+                image=ArticleMedia(
+                    item.xpath("media:content/@url", namespaces=self.namespaces).get()
+                ),
+                author=ArticleAuthor(
+                    item.xpath("dc:creator/text()", namespaces=self.namespaces).get()
+                ),
+                footer=ArticleFooter(
+                    text=",".join(item.xpath("category/text()").getall())
+                ),
+            )
