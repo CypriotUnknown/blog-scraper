@@ -1,7 +1,6 @@
 from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
-from scrapy.utils.project import get_project_settings
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 
 

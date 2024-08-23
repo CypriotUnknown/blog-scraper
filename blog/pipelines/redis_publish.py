@@ -3,6 +3,7 @@ import redis
 import os
 from ..items import Article
 from scrapy.exceptions import DropItem
+from datetime import datetime
 
 
 class RedisPublishPipeline:
@@ -41,8 +42,25 @@ class RedisPublishPipeline:
 
     def close_spider(self, spider):
         if self.redis_client is not None:
+            try:
+                should_sort = spider.sort == True
+            except:
+                should_sort = False
+
+            if should_sort:
+                self.items.sort(
+                    key=lambda item: (
+                        datetime.fromisoformat(item.timestamp)
+                        if item.timestamp
+                        else datetime.min
+                    ),
+                    reverse=True,
+                )
+
+            items_as_dict_array = [item.to_dict() for item in self.items]
+
             dict_to_send = {
-                "articles": self.items,
+                "articles": items_as_dict_array,
                 "notificationFlag": self.notification_flag,
             }
 
@@ -76,5 +94,5 @@ class RedisPublishPipeline:
 
         # Add each item to the list
         if self.redis_client is not None:
-            self.items.append(item.to_dict())
+            self.items.append(item)
         return item
