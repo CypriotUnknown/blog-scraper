@@ -7,6 +7,10 @@ def clean_and_format_string_values_in_dict(dictionary):
             if "url" in key:
                 continue
 
+            if key == "text":
+                dictionary[key] = value.upper().strip()
+                continue
+
             if isinstance(value, dict):
                 clean_and_format_string_values_in_dict(value)
             elif isinstance(value, str):
