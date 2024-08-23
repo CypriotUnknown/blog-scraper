@@ -3,18 +3,21 @@ from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 from scrapy.utils.project import get_project_settings
 
+
 class FreeCodecampSpider(scrapy.Spider):
     name = "free-codecamp"
     allowed_domains = ["www.freecodecamp.org"]
     start_urls = ["https://www.freecodecamp.org/news/"]
 
     # Load existing pipelines from settings
-    global_pipelines = get_project_settings().get('ITEM_PIPELINES', {})
+    global_pipelines = get_project_settings().get("ITEM_PIPELINES", {})
 
     # Remove the specific pipeline
     custom_settings = {
         "ITEM_PIPELINES": {
-            k: v for k, v in global_pipelines.items() if k != 'blog.pipelines.process_date.ProcessDatePipeline'
+            k: v
+            for k, v in global_pipelines.items()
+            if k != "blog.pipelines.process_date.ProcessDatePipeline"
         }
     }
 
@@ -62,7 +65,11 @@ class FreeCodecampSpider(scrapy.Spider):
                     ArticleAuthor(
                         name=authors[0]["author_name"],
                         icon_url=authors[0]["author_image"],
-                        url=f"{base_url}{authors[0]["author_url"]}" if authors[0]["author_url"] is not None else None,
+                        url=(
+                            f"{base_url}{authors[0]['author_url']}"
+                            if authors[0]["author_url"] is not None
+                            else None
+                        ),
                     )
                     if len(authors) > 0
                     else None
