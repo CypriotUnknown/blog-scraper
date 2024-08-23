@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.http import HtmlResponse
-from ..items import Article, ArticleMedia, ArticleAuthor, ArticleField
+from ..items import Article, ArticleMedia, ArticleAuthor
+from utilities.get_categories_field import get_categories_fields
 
 
 class StackProductivitySpider(scrapy.Spider):
@@ -17,8 +18,8 @@ class StackProductivitySpider(scrapy.Spider):
         for article in articles:
             date = article.xpath(".//time/@datetime").get()
             title = article.xpath(".//*[@itemprop='name']/text()").get()
-            image = article.xpath(".//img/@src").get()
-            url = article.xpath(".//img/parent::a/@href").get()
+            image = article.xpath(".//a/img/@src").get()
+            url = article.xpath(".//*[@itemprop='name']/parent::a/@href").get()
             url = f"{base_url}{url}" if url is not None else None
             description = article.xpath(".//*[@itemprop='abstract']/text()").get()
             author_name = article.xpath(".//a[@itemprop='author']/text()").get()
@@ -35,15 +36,9 @@ class StackProductivitySpider(scrapy.Spider):
                 url=url,
                 timestamp=date,
                 description=description,
-                image=ArticleMedia(image),
+                image=ArticleMedia(image) if image is not None else None,
                 author=ArticleAuthor(
                     name=author_name, url=author_url, icon_url=author_image
                 ),
-                fields=[
-                    ArticleField(name="Categories", value=""),
-                    *[
-                        ArticleField(name="", value=category, inline=True)
-                        for category in categories
-                    ],
-                ],
+                fields=get_categories_fields(categories),
             )

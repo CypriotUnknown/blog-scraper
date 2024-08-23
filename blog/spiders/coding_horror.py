@@ -1,9 +1,7 @@
 from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
-from urllib.parse import urlparse
-from scrapy.utils.project import get_project_settings
-from ..items import ArticleAuthor, Article, ArticleMedia
+from ..items import ArticleAuthor, Article
 
 
 class CodingHorrorSpider(scrapy.Spider):

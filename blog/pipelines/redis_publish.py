@@ -47,8 +47,15 @@ class RedisPublishPipeline:
             }
 
             items_json = json.dumps(dict_to_send, indent=4)
+            category_channel = "blogs"
+
+            try:
+                category_channel = spider.category_channel
+            except:
+                pass
+
             channel_name = ".".join(
-                [self.channel_pattern, spider.name, "blogs", "articles"]
+                [self.channel_pattern, spider.name, category_channel, "articles"]
             )
 
             self.redis_client.publish(channel_name, items_json)
