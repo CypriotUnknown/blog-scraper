@@ -4,6 +4,9 @@ from ..items import Article
 def clean_and_format_string_values_in_dict(dictionary):
     if isinstance(dictionary, dict):
         for key, value in dictionary.items():
+            if "url" in key:
+                continue
+
             if isinstance(value, dict):
                 clean_and_format_string_values_in_dict(value)
             elif isinstance(value, str):
