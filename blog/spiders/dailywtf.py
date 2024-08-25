@@ -4,9 +4,10 @@ from scrapy.http import HtmlResponse
 from datetime import datetime
 from urllib.parse import urlparse
 from ..items import Article, ArticleAuthor, ArticleFooter
+from ..blog_spider import BlogSpider
 
 
-class DailywtfSpider(scrapy.Spider):
+class DailywtfSpider(BlogSpider):
     name = "dailywtf"
     allowed_domains = ["thedailywtf.com"]
     today = datetime.now()

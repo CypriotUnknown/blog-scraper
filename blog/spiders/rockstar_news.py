@@ -2,9 +2,10 @@ from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleFooter
+from ..blog_spider import BlogSpider
 
 
-class RockstarNewsSpider(scrapy.Spider):
+class RockstarNewsSpider(BlogSpider):
     name = "rockstar-news"
     allowed_domains = ["www.rockstargames.com"]
     start_urls = [

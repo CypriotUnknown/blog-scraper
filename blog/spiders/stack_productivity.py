@@ -2,9 +2,10 @@ import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor
 from utilities.get_categories_field import get_categories_fields
+from ..blog_spider import BlogSpider
 
 
-class StackProductivitySpider(scrapy.Spider):
+class StackProductivitySpider(BlogSpider):
     name = "stack-productivity"
     allowed_domains = ["stackoverflow.blog"]
     start_urls = ["https://stackoverflow.blog/productivity/"]

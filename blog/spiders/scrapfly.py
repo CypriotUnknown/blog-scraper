@@ -3,9 +3,10 @@ import scrapy
 from scrapy.http import XmlResponse
 from scrapy.utils.project import get_project_settings
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
+from ..blog_spider import BlogSpider
 
 
-class ScrapflySpider(scrapy.Spider):
+class ScrapflySpider(BlogSpider):
     name = "scrapfly"
     allowed_domains = ["scrapfly.io"]
     start_urls = ["https://scrapfly.io/blog/rss/"]

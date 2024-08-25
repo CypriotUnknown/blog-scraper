@@ -3,9 +3,10 @@ from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleFooter, ArticleAuthor
+from ..blog_spider import BlogSpider
 
 
-class DirtfishNewsSpider(scrapy.Spider):
+class DirtfishNewsSpider(BlogSpider):
     name = "dirtfish-news"
     allowed_domains = ["dirtfish.com"]
     start_urls = ["https://dirtfish.com/rally/wrc/"]

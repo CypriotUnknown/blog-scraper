@@ -1,6 +1,7 @@
 import json
 import os
 from ..items import Article
+from ..blog_spider import BlogSpider
 
 
 class JsonWriterPipeline:

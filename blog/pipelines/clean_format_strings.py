@@ -1,4 +1,5 @@
 from ..items import Article
+from ..blog_spider import BlogSpider
 
 
 def clean_and_format_string_values_in_dict(dictionary):

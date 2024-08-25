@@ -2,9 +2,10 @@ from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
+from ..blog_spider import BlogSpider
 
 
-class GithubLatestSpider(scrapy.Spider):
+class GithubLatestSpider(BlogSpider):
     name = "github-latest"
     allowed_domains = ["github.blog"]
     start_urls = ["https://github.blog/latest/"]

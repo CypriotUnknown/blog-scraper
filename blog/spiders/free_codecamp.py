@@ -2,9 +2,10 @@ import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 from scrapy.utils.project import get_project_settings
+from ..blog_spider import BlogSpider
 
 
-class FreeCodecampSpider(scrapy.Spider):
+class FreeCodecampSpider(BlogSpider):
     name = "free-codecamp"
     allowed_domains = ["www.freecodecamp.org"]
     start_urls = ["https://www.freecodecamp.org/news/"]

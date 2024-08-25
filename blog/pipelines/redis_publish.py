@@ -2,6 +2,7 @@ import json
 import redis
 import os
 from ..items import Article
+from ..blog_spider import BlogSpider
 from scrapy.exceptions import DropItem
 from datetime import datetime
 

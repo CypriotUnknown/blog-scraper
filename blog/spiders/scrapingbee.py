@@ -1,9 +1,10 @@
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor
+from ..blog_spider import BlogSpider
 
 
-class ScrapingBeeSpider(scrapy.Spider):
+class ScrapingBeeSpider(BlogSpider):
     name = "scrapingbee"
     allowed_domains = ["www.scrapingbee.com"]
     start_urls = ["https://www.scrapingbee.com/blog/"]

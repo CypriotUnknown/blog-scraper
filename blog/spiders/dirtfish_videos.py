@@ -2,9 +2,10 @@ from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia
+from ..blog_spider import BlogSpider
 
 
-class DirtfishVideosSpider(scrapy.Spider):
+class DirtfishVideosSpider(BlogSpider):
     name = "dirtfish-videos"
     allowed_domains = ["dirtfish.com"]
     start_urls = ["https://dirtfish.com/videos/"]

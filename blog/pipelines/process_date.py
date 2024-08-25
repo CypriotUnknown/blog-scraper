@@ -1,6 +1,7 @@
 import scrapy
 from datetime import datetime, timezone
 from ..items import Article
+from ..blog_spider import BlogSpider
 
 
 class ProcessDatePipeline:

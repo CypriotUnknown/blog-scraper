@@ -1,9 +1,10 @@
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article
+from ..blog_spider import BlogSpider
 
 
-class StackNewsletterSpider(scrapy.Spider):
+class StackNewsletterSpider(BlogSpider):
     name = "stack-newsletter"
     allowed_domains = ["stackoverflow.blog"]
     start_urls = ["https://stackoverflow.blog/newsletter"]

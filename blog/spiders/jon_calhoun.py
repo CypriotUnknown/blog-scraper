@@ -1,9 +1,10 @@
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article
+from ..blog_spider import BlogSpider
 
 
-class JonCalhounSpider(scrapy.Spider):
+class JonCalhounSpider(BlogSpider):
     name = "jon"
     allowed_domains = ["www.calhoun.io"]
     start_urls = ["https://www.calhoun.io/page/1/"]

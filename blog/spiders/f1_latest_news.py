@@ -2,9 +2,10 @@ from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleFooter
+from ..blog_spider import BlogSpider
 
 
-class F1LatestNewsSpider(scrapy.Spider):
+class F1LatestNewsSpider(BlogSpider):
     name = "f1-latest-news"
     allowed_domains = ["www.formula1.com"]
     start_urls = ["https://www.formula1.com/en/latest/all"]

@@ -1,10 +1,11 @@
 from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
-from ..items import ArticleAuthor, Article
+from ..items import Article, ArticleAuthor
+from ..blog_spider import BlogSpider
 
 
-class CodingHorrorSpider(scrapy.Spider):
+class CodingHorrorSpider(BlogSpider):
     name = "coding-horror"
     allowed_domains = ["blog.codinghorror.com"]
     start_urls = ["https://blog.codinghorror.com/"]
