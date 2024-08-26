@@ -4,9 +4,10 @@ from scrapy.utils.project import get_project_settings
 
 
 class BlogSpider(scrapy.Spider):
-    category_channel: Optional[str] = None
+    category_channel = "blogs"
     redis_pipeline_active: bool = True
     sort: bool = False
+    date_format: Optional[str] = None
 
     custom_settings = {
         "ITEM_PIPELINES": (

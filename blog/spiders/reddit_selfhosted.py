@@ -1,13 +1,14 @@
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor
 from ..blog_spider import BlogSpider
+from utilities import REDDIT_CATEGORY_CHANNEL
 
 
 class RedditSelfhostedSpider(BlogSpider):
     name = "reddit-selfhosted"
     allowed_domains = ["www.reddit.com"]
     start_urls = ["https://www.reddit.com/r/selfhosted/"]
-    category_channel = "reddit"
+    category_channel = REDDIT_CATEGORY_CHANNEL
 
     def parse(self, response: HtmlResponse):
         articles = response.xpath("//shreddit-post")

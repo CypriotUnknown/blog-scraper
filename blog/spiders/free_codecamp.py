@@ -1,7 +1,5 @@
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
-from scrapy.utils.project import get_project_settings
 from ..blog_spider import BlogSpider
 
 
@@ -9,18 +7,6 @@ class FreeCodecampSpider(BlogSpider):
     name = "free-codecamp"
     allowed_domains = ["www.freecodecamp.org"]
     start_urls = ["https://www.freecodecamp.org/news/"]
-
-    # Load existing pipelines from settings
-    global_pipelines = get_project_settings().get("ITEM_PIPELINES", {})
-
-    # Remove the specific pipeline
-    custom_settings = {
-        "ITEM_PIPELINES": {
-            k: v
-            for k, v in global_pipelines.items()
-            if k != "blog.pipelines.process_date.ProcessDatePipeline"
-        }
-    }
 
     def parse(self, response: HtmlResponse):
         articles = response.xpath(

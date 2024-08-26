@@ -1,19 +1,16 @@
-from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleFooter
 from ..blog_spider import BlogSpider
+from utilities import MOTORSPORTS_CATEGORY_CHANNEL
 
 
 class F1LatestNewsSpider(BlogSpider):
     name = "f1-latest-news"
     allowed_domains = ["www.formula1.com"]
     start_urls = ["https://www.formula1.com/en/latest/all"]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.category_channel = "motorsports"
-        self.sort = True
+    category_channel = MOTORSPORTS_CATEGORY_CHANNEL
+    sort = True
 
     def parse(self, response: HtmlResponse):
         items = response.xpath(

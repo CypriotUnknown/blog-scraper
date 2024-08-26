@@ -1,4 +1,3 @@
-from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from datetime import datetime
@@ -16,11 +15,8 @@ class DailywtfSpider(BlogSpider):
         f"https://thedailywtf.com/series/{today.year}/{today.month}/code-sod",
         f"https://thedailywtf.com/series/{today.year}/{today.month}/errord",
     ]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.date_format = "%Y-%m-%d"
-        self.sort = True
+    date_format = "%Y-%m-%d"
+    sort = True
 
     def parse(self, response: HtmlResponse):
         category = urlparse(response.url).path.split("/")[-1]

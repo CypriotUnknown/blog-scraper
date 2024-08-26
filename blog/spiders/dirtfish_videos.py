@@ -1,18 +1,14 @@
-from typing import Any
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia
 from ..blog_spider import BlogSpider
+from utilities import MOTORSPORTS_CATEGORY_CHANNEL
 
 
 class DirtfishVideosSpider(BlogSpider):
     name = "dirtfish-videos"
     allowed_domains = ["dirtfish.com"]
     start_urls = ["https://dirtfish.com/videos/"]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.category_channel = "motorsports"
+    category_channel = MOTORSPORTS_CATEGORY_CHANNEL
 
     def parse(self, response: HtmlResponse):
         items = response.xpath("//a[@class='yotu-video']")

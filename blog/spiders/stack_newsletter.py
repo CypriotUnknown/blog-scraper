@@ -1,4 +1,3 @@
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article
 from ..blog_spider import BlogSpider

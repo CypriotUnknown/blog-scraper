@@ -1,4 +1,3 @@
-from typing import Any
 import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleAuthor
@@ -9,10 +8,7 @@ class CodingHorrorSpider(BlogSpider):
     name = "coding-horror"
     allowed_domains = ["blog.codinghorror.com"]
     start_urls = ["https://blog.codinghorror.com/"]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.date_format = "%Y-%m-%d"
+    date_format = "%Y-%m-%d"
 
     def parse(self, response: HtmlResponse):
         items: list[Article] = []

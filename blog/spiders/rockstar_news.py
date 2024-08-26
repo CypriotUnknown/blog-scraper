@@ -1,8 +1,7 @@
-from typing import Any
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleFooter
 from ..blog_spider import BlogSpider
+from utilities import GAMES_CATEGORY_CHANNEL
 
 
 class RockstarNewsSpider(BlogSpider):
@@ -11,11 +10,8 @@ class RockstarNewsSpider(BlogSpider):
     start_urls = [
         r'https://graph.rockstargames.com/?origin=https://www.rockstargames.com&operationName=NewswireList&variables={"locale":"en_us","tagId":0,"page":1,"metaUrl":"/newswire"}&extensions={"persistedQuery":{"version":1,"sha256Hash":"eeb9e750157d583439e4858417291d5b09c07d7d48986858376a7a5a5d2f8a82"}}'
     ]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.category_channel = "games"
-        self.date_format = "%m/%d/%y, %I:%M %p"
+    date_format = "%m/%d/%y, %I:%M %p"
+    category_channel = GAMES_CATEGORY_CHANNEL
 
     def parse(self, response: HtmlResponse):
         json = response.json()

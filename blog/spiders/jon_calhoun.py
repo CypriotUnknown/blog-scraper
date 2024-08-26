@@ -8,13 +8,12 @@ class JonCalhounSpider(BlogSpider):
     name = "jon"
     allowed_domains = ["www.calhoun.io"]
     start_urls = ["https://www.calhoun.io/page/1/"]
-
     base_url = "https://www.calhoun.io/page/"
     page_to_scrape = 1
 
     def parse(self, response: HtmlResponse):
         if response.status is not 200:
-            return
+            yield None
 
         articles = response.css("div.block.pt-6.pb-0")
 

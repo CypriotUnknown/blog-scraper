@@ -1,7 +1,4 @@
-from typing import Any
-import scrapy
 from scrapy.http import XmlResponse
-from scrapy.utils.project import get_project_settings
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 from ..blog_spider import BlogSpider
 
@@ -16,10 +13,7 @@ class ScrapflySpider(BlogSpider):
         "dc": "http://purl.org/dc/elements/1.1/",
         "media": "http://search.yahoo.com/mrss/",
     }
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.date_format = "%a, %d %b %Y %H:%M:%S %Z"
+    date_format = "%a, %d %b %Y %H:%M:%S %Z"
 
     def parse(self, response: XmlResponse):
 

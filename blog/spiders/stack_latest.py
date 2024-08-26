@@ -1,4 +1,3 @@
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor
 from utilities.get_categories_field import get_categories_fields

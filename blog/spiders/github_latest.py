@@ -1,5 +1,3 @@
-from typing import Any
-import scrapy
 from scrapy.http import HtmlResponse
 from ..items import Article, ArticleMedia, ArticleAuthor, ArticleFooter
 from ..blog_spider import BlogSpider
@@ -9,10 +7,7 @@ class GithubLatestSpider(BlogSpider):
     name = "github-latest"
     allowed_domains = ["github.blog"]
     start_urls = ["https://github.blog/latest/"]
-
-    def __init__(self, name: str | None = None, **kwargs: Any):
-        super().__init__(name, **kwargs)
-        self.date_format = "%Y-%m-%d"
+    date_format = "%Y-%m-%d"
 
     def parse(self, response: HtmlResponse):
         articles = response.css("article")

@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 class RedisPublishPipeline:
-    def open_spider(self, spider):
+    def open_spider(self, spider: BlogSpider):
         # Initialize Redis connection
         self.redis_client = None
 
@@ -41,7 +41,7 @@ class RedisPublishPipeline:
                     self.items: list[Article] = []  # List to hold all scraped items
                     self.notification_flag: str | None = None
 
-    def close_spider(self, spider):
+    def close_spider(self, spider: BlogSpider):
         if self.redis_client is not None:
             try:
                 should_sort = spider.sort == True
@@ -66,21 +66,15 @@ class RedisPublishPipeline:
             }
 
             items_json = json.dumps(dict_to_send, indent=4)
-            category_channel = "blogs"
-
-            try:
-                category_channel = spider.category_channel
-            except:
-                pass
 
             channel_name = ".".join(
-                [self.channel_pattern, spider.name, category_channel, "articles"]
+                [self.channel_pattern, spider.name, spider.category_channel, "articles"]
             )
 
             self.redis_client.publish(channel_name, items_json)
             print(f"published to Redis @ '{channel_name}'")
 
-    def process_item(self, item: Article | None, spider):
+    def process_item(self, item: Article | None, spider: BlogSpider):
         if item is None:
             print("ITEM IS NULL")
             raise DropItem(item)
