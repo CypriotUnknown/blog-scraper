@@ -2,13 +2,13 @@
 
 ## Overview
 
-This application publishes the scraped data to a Redis client. It also stores the scraped data in JSON format. If you want to publish to redis either place a file named `redis-conf.json` inside the main blog folder; or you can optionally specify the path to this configuration file using the `CONFIG_PATH` environment variable. The output files are located at `data/articles.json`.
+This application publishes the scraped data to a Redis client. It also stores the scraped data in JSON format. If you want to publish to redis either place a file named `redis-conf.json` inside the main blog folder; or you can optionally specify the path to this configuration file using the `CONFIG_PATH` environment variable. The output files are located at `data/articles.json`. The data published to Redis is JSON object that can be sent to a Discord webhook as a list of Discord Embeds.
 
 ## Configuration
 
 ### redis-conf.json
 
-The application can use a JSON configuration file to specify connection details. The fields `username` and `password` are optional. The JSON file should contain the following fields:
+The application can use a JSON configuration file to specify connection details. The fields `username` and `password` are optional. The field `channel_pattern` will be the prefix for the Redis publish channel. See [documentation](https://redis.io/docs/latest/develop/interact/pubsub/) for more details. The JSON file should contain the following fields:
 
 ```json
 {
