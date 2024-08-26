@@ -2,7 +2,7 @@
 
 ## Overview
 
-This application publishes the scraped data to a Redis client. It also stores the scraped data in JSON format. If you want to publish to redis either place a file named `redis-conf.json` inside the main blog folder; or you can optionally specify the path to this configuration file using the `CONFIG_PATH` environment variable. The output files are located at `data/articles.json`.
+This application publishes the scraped data to a Redis client. It also stores the scraped data in JSON format. If you want to publish to redis either place a file named `redis-conf.json` inside the main blog folder; or you can optionally specify the path to this configuration file using the `CONFIG_PATH` environment variable. The output files are located at `data/articles.json`. The data published to Redis is JSON object that can be sent to a Discord webhook as a list of Discord Embeds.
 
 ## Configuration
 
