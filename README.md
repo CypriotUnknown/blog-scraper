@@ -8,7 +8,7 @@ This application publishes the scraped data to a Redis client. It also stores th
 
 ### redis-conf.json
 
-The application can use a JSON configuration file to specify connection details. The fields `username` and `password` are optional. The JSON file should contain the following fields:
+The application can use a JSON configuration file to specify connection details. The fields `username` and `password` are optional. The field `channel_pattern` will be the prefix for the Redis publish channel. See [documentation](https://redis.io/docs/latest/develop/interact/pubsub/) for more details. The JSON file should contain the following fields:
 
 ```json
 {
