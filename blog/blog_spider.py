@@ -15,7 +15,7 @@ class BlogSpider(scrapy.Spider):
                 for k, v in get_project_settings().get("ITEM_PIPELINES", {}).items()
                 if k != "blog.pipelines.redis_publish.RedisPublishPipeline"
             }
-            if redis_pipeline_active
+            if not redis_pipeline_active
             else {
                 k: v
                 for k, v in get_project_settings().get("ITEM_PIPELINES", {}).items()
